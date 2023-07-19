@@ -1,0 +1,9 @@
+rule render3d
+    command = openscad -o $out $in
+
+rule render2d
+    command = openscad --colorscheme 'Tomorrow Night' --render -o $out $in
+
+build cashbox_tray.png: render2d cashbox_tray.scad
+build cashbox_tray.stl: render3d cashbox_tray.scad
+build cashbox_tray.3mf: render3d cashbox_tray.scad
